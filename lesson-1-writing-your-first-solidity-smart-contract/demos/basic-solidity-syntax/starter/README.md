@@ -11,3 +11,8 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+## Demo steps
+1. Create a Solidity file
+2. Writng the pragma directive 
+3. Declaring the smart contract 
+4. FInal touches and recap 
