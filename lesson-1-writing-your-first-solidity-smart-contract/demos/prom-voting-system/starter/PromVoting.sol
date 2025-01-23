@@ -10,4 +10,14 @@ contract PromVoting {
     }   
     // Mapping from candidate ID to candidate struct for storing candidates 
     mapping(uint => Candidate) public candidates;
-}
+
+    // Counter for the total number of candidates 
+    uint public candidatesCount;
+
+    // Function to add a new candidate to the election 
+    function addCandidate(string memory _name) public {
+        candidatesCount += 1;
+        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+    }
+ }
+    
