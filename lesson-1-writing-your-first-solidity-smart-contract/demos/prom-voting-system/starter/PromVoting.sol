@@ -32,5 +32,11 @@ contract PromVoting {
         // Emit a vote event
         emit VoteCast(_candidateId);
     }
+
+    // Function to get the vote count for a specific candidate 
+    function getCandidateVotCount(uint _candidateId) public view returns (uint) {
+        require(_candidateId > 0 && _candidateId <= candidatesCount, "Invalid candidate ID");
+        return candidates[_candidateId].voteCount;
+    }
  }
     
