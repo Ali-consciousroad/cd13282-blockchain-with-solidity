@@ -14,10 +14,23 @@ contract PromVoting {
     // Counter for the total number of candidates 
     uint public candidatesCount;
 
+    // Event to be emitted when a vote is cast 
+    event VoteCast(uint candidateId);
+
     // Function to add a new candidate to the election 
     function addCandidate(string memory _name) public {
         candidatesCount += 1;
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+    }
+
+    // Function to vote for a candidate 
+    function vote(uint _candidateId) public {
+        require(_candidateId > 0 && _candidateId <= candidatesCount, "Invalid candidate ID");
+        // Increment the candidate's vote count 
+        candidates[_candidateId].voteCount += 1;
+
+        // Emit a vote event
+        emit VoteCast(_candidateId);
     }
  }
     
